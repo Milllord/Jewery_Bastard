@@ -1,6 +1,8 @@
 from tkinter import *
-from turtle import color
 
+"""
+    Центрирует окно tkinter
+"""
 def center(win):
     """
     centers a tkinter window
@@ -18,8 +20,55 @@ def center(win):
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
 
-def main_account_screen():
+def register():
+ 
+    # The Toplevel widget work pretty much like Frame,
+    # but it is displayed in a separate, top-level window. 
+    # Such windows usually have title bars, borders, and other “window decorations”.
+    # And in argument we have to pass global screen variable
     
+    register_screen = Toplevel() 
+    register_screen.title("Register")
+    register_screen.geometry("300x250")
+ 
+    # Set text variables
+    username = StringVar()
+    password = StringVar()
+ 
+    # Set label for user's instruction
+    Label(register_screen, text="Введите данные для регистрации", bg="blue", font=("Calibri", 15)).pack()
+    Label(register_screen, text="").pack()
+    
+    # Set username label
+    username_lable = Label(register_screen, text="Имя пользователя")
+    username_lable.pack()
+ 
+    # Set username entry
+    # The Entry widget is a standard Tkinter widget used to enter or display a single line of text.
+    
+    username_entry = Entry(register_screen, textvariable=username)
+    username_entry.pack()
+   
+    # Set password label
+    password_lable = Label(register_screen, text="Пароль")
+    password_lable.pack()
+    
+    # Set password entry
+    password_entry = Entry(register_screen, textvariable=password, show='*')
+    password_entry.pack()
+    
+    Label(register_screen, text="").pack()
+    
+    # Set register button
+    Button(register_screen, text="Register", width=10, height=1, bg="blue").pack()
+
+    center(register_screen)
+
+"""
+    Создает и отображает окно входа в систему
+"""
+def main_account_screen():
+    global main_screen
     main_screen = Tk()   # create a GUI window 
     main_screen.geometry("300x250") # set the configuration of GUI window 
     main_screen.title("Вход в систему") # set the title of GUI window
@@ -31,11 +80,13 @@ def main_account_screen():
     # create Login Button 
     Button(text="Вход", height="2", font=("Calibri", 15), width="30").pack() 
     Label(text="").pack() 
-    
+
     # create a register button
-    Button(text="Регистрация", height="2", font=("Calibri", 15), width="30").pack()
+    Button(text="Регистрация", height="2", font=("Calibri", 15), width="30", command=register).pack()
 
     center(main_screen)
+
+    # add command=register in button widget
     
     main_screen.mainloop() # start the GUI
     
