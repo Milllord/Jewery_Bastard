@@ -40,27 +40,27 @@ def register():
     Label(register_screen, text="").pack()
     
     # Set username label
-    username_lable = Label(register_screen, text="Имя пользователя")
+    username_lable = Label(register_screen, font=("Calibri", 15), text="Имя")
     username_lable.pack()
  
     # Set username entry
     # The Entry widget is a standard Tkinter widget used to enter or display a single line of text.
     
-    username_entry = Entry(register_screen, textvariable=username)
+    username_entry = Entry(register_screen, textvariable=username, font=("Calibri", 15))
     username_entry.pack()
    
     # Set password label
-    password_lable = Label(register_screen, text="Пароль")
+    password_lable = Label(register_screen, font=("Calibri", 15), text="Фамилия")
     password_lable.pack()
     
     # Set password entry
-    password_entry = Entry(register_screen, textvariable=password, show='*')
+    password_entry = Entry(register_screen, font=("Calibri", 15))
     password_entry.pack()
     
     Label(register_screen, text="").pack()
     
     # Set register button
-    Button(register_screen, text="Register", width=10, height=1, bg="blue").pack()
+    Button(register_screen, text="Регистрация", font=("Calibri", 15), width=10, height=1, bg="blue").pack()
 
     center(register_screen)
 
